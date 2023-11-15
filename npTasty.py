@@ -17,4 +17,6 @@ def perspective_multiply(M, x):
     """
     N, _ = x.shape 
     x_hom = np.concatenate((x, np.ones((N, 1))), axis=1)
-    return ((M @ x_hom.T).T)[:, :-1]
+    y_hom = ((M @ x_hom.T).T)
+    y = y_hom[:, :-1] / y_hom[:, -1:]
+    return y
