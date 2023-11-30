@@ -49,3 +49,36 @@ def find_first_false(arr):
     """
     indices = np.where(~arr)[0]
     return indices[0] if indices.size > 0 else None
+    
+def nd_argmin(arr):
+    """
+    Find the N-dimensional index of the minimum value in an N-dimensional array.
+
+    Parameters:
+    arr (np.ndarray): An N-dimensional NumPy array.
+
+    Returns:
+    tuple: An N-dimensional index tuple of the minimum value in the array.
+    """
+    # np.argmin returns the index of the minimum value in the flattened array
+    flat_index_min = np.argmin(arr)
+
+    # np.unravel_index converts the flat index to an N-dimensional index
+    return np.unravel_index(flat_index_min, arr.shape)
+
+def nd_argmax(arr):
+    """
+    Find the N-dimensional index of the maximum value in an N-dimensional array.
+
+    Parameters:
+    arr (np.ndarray): An N-dimensional NumPy array.
+
+    Returns:
+    tuple: An N-dimensional index tuple of the maximum value in the array.
+    """
+    # np.argmax returns the index of the maximum value in the flattened array
+    flat_index_max = np.argmax(arr)
+
+    # np.unravel_index converts the flat index to an N-dimensional index
+    return np.unravel_index(flat_index_max, arr.shape)
+
