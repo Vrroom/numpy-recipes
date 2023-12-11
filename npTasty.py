@@ -82,3 +82,14 @@ def nd_argmax(arr):
     # np.unravel_index converts the flat index to an N-dimensional index
     return np.unravel_index(flat_index_max, arr.shape)
 
+def topk (arr, k) :
+    """
+    Find top k indices
+
+    Parameters:
+    arr (np.ndarray): A 1D NumPy array.
+
+    Returns:
+    np.ndarray: k indices
+    """
+    return np.argsort(arr)[-k:]
